@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *
+        {
+            padding: 0px;
+            margin: 0px;
+        }
+        body
+        {
+            background-image: url(../images/pexels-cesar-perez-733745.jpg);
+            background-size: 100vw;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: 0px -150px;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;   
+        }
+        #container
+        {
+            position: relative;
+            width: 40%;
+            height: 80%;
+            background-color: rgba(0, 0, 0, 0.164);
+            border-radius: 5%;
+            box-shadow: 0px 0px 5px black;
+        }
+        #display
+        {
+            width: 75%;
+            height: 30px;
+            position: absolute;
+            top: 5%;
+            left: 9%;
+            background-color: black;
+            color: white;
+            font-size: 25px;
+            padding: 5px;
+            outline:  none;
+            border: groove 10px gray;
+            box-shadow: 2px 2px 5px black;
+        }
+        .a
+        {
+            top: 7vw;
+            left: 5vw;
+            margin: 5px;
+            margin-top: 20px;
+            position: relative;
+            width: 15%;
+            height: 6vh;
+            background-color: black;
+            color: white;
+            font-size: 24px;
+            border-radius: 5px;
+            box-shadow: 2px 2px 2px black;
+            border: 2px solid white;
+        }
+        #clr
+        {
+            position: absolute;
+            bottom: 50px;
+            width: 30%;
+            height: 6vh;
+            font-size: 24px;
+            left: 5vw;
+            background-color: black;
+            color: white;
+            border: 2px solid white;
+            border-radius: 5px;
+            box-shadow: 2px 2px 2px black;
+        }
+        #equ
+        {
+            position: absolute;
+            bottom: 50px;
+            width: 35%;
+            height: 6vh;
+            font-size: 24px;
+            left: 19vw;
+            background-color: black;
+            color: white;
+            border: 2px solid white;
+            border-radius: 5px;
+            box-shadow: 2px 2px 2px black;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+    <form name="c">
+        <input name="Ans" id="display">
+        <br>
+        <input onmousedown="clicksound()" class="a" type="button" value="1" onclick="c.Ans.value +='1'">
+        <input onmousedown="clicksound()" class="a" type="button" value="2" onclick="c.Ans.value +='2'">
+        <input onmousedown="clicksound()" class="a" type="button" value="3" onclick="c.Ans.value +='3'">
+        <input onmousedown="clicksound()" class="a" type="button" value="+" onclick="c.Ans.value +='+'">
+        <br>
+        <input onmousedown="clicksound()" class="a" type="button" value="4" onclick="c.Ans.value +='4'">
+        <input onmousedown="clicksound()" class="a" type="button" value="5" onclick="c.Ans.value +='5'">
+        <input onmousedown="clicksound()" class="a" type="button" value="6" onclick="c.Ans.value +='6'">
+        <input onmousedown="clicksound()" class="a" type="button" value="-" onclick="c.Ans.value +='-'">
+        <br>
+        <input onmousedown="clicksound()" class="a" type="button" value="7" onclick="c.Ans.value +='7'">
+        <input onmousedown="clicksound()" class="a" type="button" value="8" onclick="c.Ans.value +='8'">
+        <input onmousedown="clicksound()" class="a" type="button" value="9" onclick="c.Ans.value +='9'">
+        <input onmousedown="clicksound()" class="a" type="button" value="x" onclick="c.Ans.value +='*'">
+        <br>
+        <input onmousedown="clicksound()" class="a" type="button" value="%" onclick="c.Ans.value +='%'">
+        <input onmousedown="clicksound()" class="a" type="button" value="0" onclick="c.Ans.value +='0'">
+        <input onmousedown="clicksound()" class="a" type="button" value="." onclick="c.Ans.value +='.'">
+        <input onmousedown="clicksound()" class="a" type="button" value="/" onclick="c.Ans.value +='/'">
+        <br>
+        <input onmousedown="clicksound()" type="button" id="equ" value="=" onclick="c.Ans.value =eval(c.Ans.value)">
+        <input onmousedown="clicksound()" type="button" id="clr" value="C" onclick="c.Ans.value =' '">
+        <br>
+    </form>
+    </div>
+    <script>
+        function clicksound()
+        {
+            var audio=["../Audio/ping-82822.mp3","../Audio/pick-92276.mp3","../Audio/notification-for-game-scenes-132473.mp3","../Audio/notification-126507.mp3","../Audio/interface-1-126517.mp3","../Audio/beep-6-96243.mp3","../Audio/button-124476.mp3","../Audio/button-pressed-38129.mp3","../Audio/clickselect2-92097.mp3","../Audio/error-2-126514.mp3"]
+            var sound=new Audio()
+            var n=audio.length;
+            var ran=Math.random()*n;
+            var col=Math.round(ran);
+            sound.src=audio[col]
+            sound.play()
+            var colours=["blue","green","pink","lime","red","black","royalblue","snow","white","acqua"]
+            var nn=colours.length;
+            var rran=Math.random()*n;
+            var ccol=Math.round(rran);
+            document.getElementsByClassName("a").style.backgroundColor=colours[ccol];
+        }
+    </script>
+</body>
+</html>
